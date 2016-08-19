@@ -2,41 +2,53 @@
 
 ## How to use
 
-**Step1:**
-```
-git clone https://github.com/PlantandFoodResearch/PFRAutomatedWorkflows
-cd PFRAutomatedWorkflows/VariantAnalysis 
-```
+**Step1:** Run test
 
-**Step 2:**
-
-The pipeline is preconfigured with test data. Be aware that the test data uses uncleaned raw data. You can run the QC pipeline first to get clean test data into the pipeline.
+The pipeline is preconfigured with test data. INorder to tst whether the pipeline runs through call vc_pipe without command line parameters:
 
 ```
-nextflow run .
-```
 
-**Step 3:**
-
-In the next step you need to configure the run using the file nextflow.config
-
+nextflow hdzierz/VariantAnalysisFB
 
 ```
-reads = "$baseDir/../KiwiTestData/*R{1,2}.fq.gz"
-genome = "$baseDir/../KiwiTestData/kiwitest.fasta"
-```
 
-**Step 4**
-
-Run the pipeline:
+If teh piepline does not run through, look into teh log file:
 
 ```
-nextflow run .
+.nextflow.log
 ```
 
-**Step 5**
+and contact the app steward (helge.dzierzon@plantandfood.co.nz).
 
-The hope is that the pipeline ran fine and that the results are OK. If not you might have to do some advanced configuring.
+
+**Step 2:** Configure file and sample IDs
+
+```
+label,file,lane,read,sample,experiment,date,comments
+HW1,kiwitest.1.R1.fq.gz,1,R1,HW1,kiwitest,2016-01-01,This is crap
+HW1,kiwitest.1.R2.fq.gz,1,R2,HW1,kiwitest,2016-01-01,This is crap
+HW2,kiwitest.2.R1.fq.gz,1,R1,HW2,kiwitest,2016-01-01,This is crap
+HW2,kiwitest.2.R2.fq.gz,1,R2,HW2,kiwitest,2016-01-01,This is crap
+```
+
+**Step 3:** Run the pipeline
+
+Options:
+
+```
+output_dir: publish directory for results ["./"]
+inpu_dir: Directory that contains the raw reads ["$baseDir/KiwiTestData"]
+genome: Reference genome file (*.fasta) ["$baseDir/KiwiTestData/kiwitest.fasta"]
+config: Location of config file ["$baseDir/design.config"]
+
+$baseDir = $HOME/.nextflow/assets/hdzierz/VariantAnalysisFB
+```
+
+Typical run with data sitting in $HOME/KiwiTestData
+
+```
+nextflow run hdzierz/VariantAnalysisFB --input_dir '../KiwiTestData/' --genome '../KiwiTestData/kiwitest.fasta'
+```
 
 
 
