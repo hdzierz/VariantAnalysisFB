@@ -1,0 +1,107 @@
+Aug-19 12:29:03.297 [main] DEBUG nextflow.cli.Launcher - $> /home/cfphxd/.bin/nextflow run .
+Aug-19 12:29:03.373 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 0.21.2
+Aug-19 12:29:03.802 [main] INFO  nextflow.cli.CmdRun - Launching ./main.nf
+Aug-19 12:29:03.811 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: nextflow.config
+Aug-19 12:29:03.812 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/cfphxd/PFRAutomatedWorkflows/VariantAnalysisFB/nextflow.config
+Aug-19 12:29:03.834 [main] DEBUG nextflow.config.ConfigBuilder - Setting config profile: 'standard'
+Aug-19 12:29:03.947 [main] DEBUG nextflow.Session - Session uuid: 9152d0b7-0a95-4ec4-8508-b2f37a496122
+Aug-19 12:29:03.949 [main] DEBUG nextflow.Session - Executor pool size: 2
+Aug-19 12:29:03.964 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 0.21.2 build 3985
+  Modified: 12-08-2016 09:48 UTC (21:48 NZDT)
+  System: Linux 3.10.0-327.22.2.el7.x86_64
+  Runtime: Groovy 2.4.7 on OpenJDK 64-Bit Server VM 1.8.0_91-b14
+  Encoding: UTF-8 (UTF-8)
+  Process: 23664@aklppf31.pfr.co.nz [10.80.131.1]
+  CPUs: 2 - Mem: 7.6 GB (616.5 MB) - Swap: 3.9 GB (3.5 GB)
+Aug-19 12:29:04.309 [main] DEBUG nextflow.Session - Work-dir: /home/cfphxd/PFRAutomatedWorkflows/VariantAnalysisFB/work [nfs]
+Aug-19 12:29:04.310 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /home/cfphxd/PFRAutomatedWorkflows/VariantAnalysisFB/bin
+Aug-19 12:29:04.310 [main] DEBUG nextflow.Session - Session start invoked
+Aug-19 12:29:04.311 [main] DEBUG nextflow.processor.TaskDispatcher - Dispatcher > start
+Aug-19 12:29:04.312 [main] DEBUG nextflow.script.ScriptRunner - > Script parsing
+Aug-19 12:29:04.997 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Aug-19 12:29:05.032 [main] DEBUG nextflow.Channel - files for syntax: glob; folder: /home/cfphxd/PFRAutomatedWorkflows/VariantAnalysisFB/data/; pattern: *R{1,2}.fq.gz; options: null
+Aug-19 12:29:05.182 [main] DEBUG nextflow.processor.ProcessFactory - << taskConfig executor: lsf
+Aug-19 12:29:05.182 [main] DEBUG nextflow.processor.ProcessFactory - >> processorType: 'lsf'
+Aug-19 12:29:05.192 [main] DEBUG nextflow.executor.Executor - Initializing executor: lsf
+Aug-19 12:29:05.194 [main] INFO  nextflow.executor.Executor - [warm up] executor > lsf
+Aug-19 12:29:05.198 [main] DEBUG n.processor.TaskPollingMonitor - Creating task monitor for executor 'lsf' > capacity: 100; pollInterval: 1s; dumpInterval: 5m 
+Aug-19 12:29:05.200 [main] DEBUG nextflow.processor.TaskDispatcher - Starting monitor: TaskPollingMonitor
+Aug-19 12:29:05.200 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: lsf)
+Aug-19 12:29:05.216 [main] DEBUG nextflow.executor.Executor - Invoke register for executor: lsf
+Aug-19 12:29:05.217 [main] DEBUG n.executor.AbstractGridExecutor - Creating executor 'lsf' > queue-stat-interval: 1m
+Aug-19 12:29:05.244 [main] DEBUG nextflow.Session - >>> barrier register (process: build_index)
+Aug-19 12:29:05.258 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > build_index -- maxForks: 2
+Aug-19 12:29:05.322 [Actor Thread 3] DEBUG nextflow.processor.TaskProcessor - <build_index> Poison pill arrived
+Aug-19 12:29:05.324 [main] DEBUG nextflow.processor.ProcessFactory - << taskConfig executor: lsf
+Aug-19 12:29:05.324 [main] DEBUG nextflow.processor.ProcessFactory - >> processorType: 'lsf'
+Aug-19 12:29:05.324 [main] DEBUG nextflow.executor.Executor - Initializing executor: lsf
+Aug-19 12:29:05.324 [main] DEBUG n.executor.AbstractGridExecutor - Creating executor 'lsf' > queue-stat-interval: 1m
+Aug-19 12:29:05.325 [main] DEBUG nextflow.Session - >>> barrier register (process: align)
+Aug-19 12:29:05.334 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > align -- maxForks: 2
+Aug-19 12:29:05.339 [main] DEBUG nextflow.processor.ProcessFactory - << taskConfig executor: lsf
+Aug-19 12:29:05.339 [main] DEBUG nextflow.processor.ProcessFactory - >> processorType: 'lsf'
+Aug-19 12:29:05.339 [main] DEBUG nextflow.executor.Executor - Initializing executor: lsf
+Aug-19 12:29:05.339 [main] DEBUG n.executor.AbstractGridExecutor - Creating executor 'lsf' > queue-stat-interval: 1m
+Aug-19 12:29:05.340 [main] DEBUG nextflow.Session - >>> barrier register (process: mark_dup)
+Aug-19 12:29:05.341 [Actor Thread 4] DEBUG nextflow.processor.StateObj - <build_index> State before poison: StateObj[submitted: 1; completed: 0; poisoned: false ]
+Aug-19 12:29:05.352 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > mark_dup -- maxForks: 2
+Aug-19 12:29:05.356 [main] DEBUG nextflow.processor.ProcessFactory - << taskConfig executor: lsf
+Aug-19 12:29:05.356 [main] DEBUG nextflow.processor.ProcessFactory - >> processorType: 'lsf'
+Aug-19 12:29:05.356 [main] DEBUG nextflow.executor.Executor - Initializing executor: lsf
+Aug-19 12:29:05.359 [main] DEBUG n.executor.AbstractGridExecutor - Creating executor 'lsf' > queue-stat-interval: 1m
+Aug-19 12:29:05.359 [main] DEBUG nextflow.Session - >>> barrier register (process: add_read_group_id)
+Aug-19 12:29:05.367 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > add_read_group_id -- maxForks: 2
+Aug-19 12:29:05.371 [main] DEBUG nextflow.processor.ProcessFactory - << taskConfig executor: lsf
+Aug-19 12:29:05.371 [main] DEBUG nextflow.processor.ProcessFactory - >> processorType: 'lsf'
+Aug-19 12:29:05.371 [main] DEBUG nextflow.executor.Executor - Initializing executor: lsf
+Aug-19 12:29:05.371 [main] DEBUG n.executor.AbstractGridExecutor - Creating executor 'lsf' > queue-stat-interval: 1m
+Aug-19 12:29:05.372 [main] DEBUG nextflow.Session - >>> barrier register (process: variant_calling_freebase)
+Aug-19 12:29:05.378 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > variant_calling_freebase -- maxForks: 2
+Aug-19 12:29:05.380 [main] DEBUG nextflow.script.ScriptRunner - > Await termination 
+Aug-19 12:29:05.380 [main] DEBUG nextflow.Session - Session await
+Aug-19 12:29:05.405 [Actor Thread 1] DEBUG nextflow.executor.GridTaskHandler - Launching process > build_index (build_index) -- work folder: /home/cfphxd/PFRAutomatedWorkflows/VariantAnalysisFB/work/5b/edfd045eaec79ddba4649a1d5c0e8b
+Aug-19 12:29:05.502 [Actor Thread 1] INFO  nextflow.Session - [5b/edfd04] Submitted process > build_index (build_index)
+Aug-19 12:29:05.503 [Actor Thread 3] DEBUG nextflow.processor.TaskProcessor - <build_index> After stop
+Aug-19 12:29:36.308 [Actor Thread 4] DEBUG nextflow.processor.TaskProcessor - <build_index> Sending poison pills and terminating process
+Aug-19 12:29:36.310 [Actor Thread 4] DEBUG nextflow.Session - <<< barrier arrive (process: build_index)
+Aug-19 12:29:36.319 [Actor Thread 5] DEBUG nextflow.processor.TaskProcessor - <align> Poison pill arrived
+Aug-19 12:29:36.319 [Actor Thread 4] DEBUG nextflow.processor.StateObj - <align> State before poison: StateObj[submitted: 2; completed: 0; poisoned: false ]
+Aug-19 12:29:36.331 [Actor Thread 3] DEBUG nextflow.executor.GridTaskHandler - Launching process > align (align) -- work folder: /home/cfphxd/PFRAutomatedWorkflows/VariantAnalysisFB/work/31/d0018ff5026d3ce7647dde626b7f8a
+Aug-19 12:29:36.386 [Actor Thread 6] DEBUG nextflow.executor.GridTaskHandler - Launching process > align (align) -- work folder: /home/cfphxd/PFRAutomatedWorkflows/VariantAnalysisFB/work/10/48952cd4e9356f9f10dd96ff80a74a
+Aug-19 12:29:36.386 [Actor Thread 3] INFO  nextflow.Session - [31/d0018f] Submitted process > align (align)
+Aug-19 12:29:36.430 [Actor Thread 6] INFO  nextflow.Session - [10/48952c] Submitted process > align (align)
+Aug-19 12:29:36.431 [Actor Thread 5] DEBUG nextflow.processor.TaskProcessor - <align> After stop
+Aug-19 12:30:07.280 [Actor Thread 7] DEBUG nextflow.executor.GridTaskHandler - Launching process > mark_dup (mark_dup) -- work folder: /home/cfphxd/PFRAutomatedWorkflows/VariantAnalysisFB/work/5e/af3eac4260cdc45ba7dd941ab3a7a6
+Aug-19 12:30:07.300 [Actor Thread 4] DEBUG nextflow.processor.TaskProcessor - <align> Sending poison pills and terminating process
+Aug-19 12:30:07.300 [Actor Thread 4] DEBUG nextflow.Session - <<< barrier arrive (process: align)
+Aug-19 12:30:07.301 [Actor Thread 5] DEBUG nextflow.processor.TaskProcessor - <mark_dup> Poison pill arrived
+Aug-19 12:30:07.301 [Actor Thread 4] DEBUG nextflow.processor.StateObj - <mark_dup> State before poison: StateObj[submitted: 2; completed: 0; poisoned: false ]
+Aug-19 12:30:07.352 [Actor Thread 7] INFO  nextflow.Session - [5e/af3eac] Submitted process > mark_dup (mark_dup)
+Aug-19 12:30:07.352 [Actor Thread 8] DEBUG nextflow.executor.GridTaskHandler - Launching process > mark_dup (mark_dup) -- work folder: /home/cfphxd/PFRAutomatedWorkflows/VariantAnalysisFB/work/be/f49946c7d6b5bc90ff485371df09e3
+Aug-19 12:30:07.393 [Actor Thread 8] INFO  nextflow.Session - [be/f49946] Submitted process > mark_dup (mark_dup)
+Aug-19 12:30:07.394 [Actor Thread 5] DEBUG nextflow.processor.TaskProcessor - <mark_dup> After stop
+Aug-19 12:31:09.286 [Actor Thread 4] DEBUG nextflow.processor.TaskProcessor - <mark_dup> Sending poison pills and terminating process
+Aug-19 12:31:09.287 [Actor Thread 4] DEBUG nextflow.Session - <<< barrier arrive (process: mark_dup)
+Aug-19 12:31:09.287 [Actor Thread 5] DEBUG nextflow.processor.TaskProcessor - <add_read_group_id> Poison pill arrived
+Aug-19 12:31:09.295 [Actor Thread 4] DEBUG nextflow.processor.StateObj - <add_read_group_id> State before poison: StateObj[submitted: 2; completed: 0; poisoned: false ]
+Aug-19 12:31:09.302 [Actor Thread 10] DEBUG nextflow.executor.GridTaskHandler - Launching process > add_read_group_id (add_read_group_id) -- work folder: /home/cfphxd/PFRAutomatedWorkflows/VariantAnalysisFB/work/48/a4ce609cf76716c321029648b32932
+Aug-19 12:31:09.377 [Actor Thread 10] INFO  nextflow.Session - [48/a4ce60] Submitted process > add_read_group_id (add_read_group_id)
+Aug-19 12:31:09.378 [Actor Thread 9] DEBUG nextflow.executor.GridTaskHandler - Launching process > add_read_group_id (add_read_group_id) -- work folder: /home/cfphxd/PFRAutomatedWorkflows/VariantAnalysisFB/work/6b/b0d7843cd2e21edd73c4619a331f84
+Aug-19 12:31:09.419 [Actor Thread 9] INFO  nextflow.Session - [6b/b0d784] Submitted process > add_read_group_id (add_read_group_id)
+Aug-19 12:31:09.419 [Actor Thread 5] DEBUG nextflow.processor.TaskProcessor - <add_read_group_id> After stop
+Aug-19 12:31:40.285 [Actor Thread 11] DEBUG nextflow.executor.GridTaskHandler - Launching process > variant_calling_freebase (variant_calling) -- work folder: /home/cfphxd/PFRAutomatedWorkflows/VariantAnalysisFB/work/7b/61a768d4fd912a6fefc748a73770c4
+Aug-19 12:31:40.297 [Actor Thread 4] DEBUG nextflow.processor.TaskProcessor - <add_read_group_id> Sending poison pills and terminating process
+Aug-19 12:31:40.297 [Actor Thread 4] DEBUG nextflow.Session - <<< barrier arrive (process: add_read_group_id)
+Aug-19 12:31:40.298 [Actor Thread 5] DEBUG nextflow.processor.TaskProcessor - <variant_calling_freebase> Poison pill arrived
+Aug-19 12:31:40.298 [Actor Thread 4] DEBUG nextflow.processor.StateObj - <variant_calling_freebase> State before poison: StateObj[submitted: 2; completed: 0; poisoned: false ]
+Aug-19 12:31:40.340 [Actor Thread 11] INFO  nextflow.Session - [7b/61a768] Submitted process > variant_calling_freebase (variant_calling)
+Aug-19 12:31:40.341 [Actor Thread 12] DEBUG nextflow.executor.GridTaskHandler - Launching process > variant_calling_freebase (variant_calling) -- work folder: /home/cfphxd/PFRAutomatedWorkflows/VariantAnalysisFB/work/d6/19e63bc50dddd316204c144c6d9da4
+Aug-19 12:31:40.378 [Actor Thread 12] INFO  nextflow.Session - [d6/19e63b] Submitted process > variant_calling_freebase (variant_calling)
+Aug-19 12:31:40.380 [Actor Thread 5] DEBUG nextflow.processor.TaskProcessor - <variant_calling_freebase> After stop
+Aug-19 12:32:11.297 [Actor Thread 4] DEBUG nextflow.processor.TaskProcessor - <variant_calling_freebase> Sending poison pills and terminating process
+Aug-19 12:32:11.298 [Actor Thread 4] DEBUG nextflow.Session - <<< barrier arrive (process: variant_calling_freebase)
+Aug-19 12:32:11.299 [main] DEBUG nextflow.Session - Session await > processes completed
+Aug-19 12:32:12.262 [Thread-3] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: lsf)
+Aug-19 12:32:12.262 [main] DEBUG nextflow.Session - Session await > done
+Aug-19 12:32:12.270 [main] DEBUG nextflow.Session - Session destroyed

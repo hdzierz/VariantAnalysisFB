@@ -1,0 +1,216 @@
+Aug-19 12:26:09.703 [main] DEBUG nextflow.cli.Launcher - $> /home/cfphxd/.bin/nextflow run .
+Aug-19 12:26:09.887 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 0.21.2
+Aug-19 12:26:10.242 [main] INFO  nextflow.cli.CmdRun - Launching ./main.nf
+Aug-19 12:26:10.253 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: nextflow.config
+Aug-19 12:26:10.256 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/cfphxd/PFRAutomatedWorkflows/VariantAnalysisFB/nextflow.config
+Aug-19 12:26:10.291 [main] DEBUG nextflow.config.ConfigBuilder - Setting config profile: 'standard'
+Aug-19 12:26:10.381 [main] DEBUG nextflow.Session - Session uuid: a316b61d-f48b-481b-a7be-76636484e55a
+Aug-19 12:26:10.384 [main] DEBUG nextflow.Session - Executor pool size: 2
+Aug-19 12:26:10.399 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 0.21.2 build 3985
+  Modified: 12-08-2016 09:48 UTC (21:48 NZDT)
+  System: Linux 3.10.0-327.22.2.el7.x86_64
+  Runtime: Groovy 2.4.7 on OpenJDK 64-Bit Server VM 1.8.0_91-b14
+  Encoding: UTF-8 (UTF-8)
+  Process: 23464@aklppf31.pfr.co.nz [10.80.131.1]
+  CPUs: 2 - Mem: 7.6 GB (616.2 MB) - Swap: 3.9 GB (3.5 GB)
+Aug-19 12:26:10.425 [main] DEBUG nextflow.Session - Work-dir: /home/cfphxd/PFRAutomatedWorkflows/VariantAnalysisFB/work [nfs]
+Aug-19 12:26:10.425 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /home/cfphxd/PFRAutomatedWorkflows/VariantAnalysisFB/bin
+Aug-19 12:26:10.425 [main] DEBUG nextflow.Session - Session start invoked
+Aug-19 12:26:10.426 [main] DEBUG nextflow.processor.TaskDispatcher - Dispatcher > start
+Aug-19 12:26:10.427 [main] DEBUG nextflow.script.ScriptRunner - > Script parsing
+Aug-19 12:26:11.103 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Aug-19 12:26:11.129 [main] DEBUG nextflow.Channel - files for syntax: glob; folder: /home/cfphxd/PFRAutomatedWorkflows/VariantAnalysisFB/data/; pattern: *R{1,2}.fq.gz; options: null
+Aug-19 12:26:11.294 [main] DEBUG nextflow.processor.ProcessFactory - << taskConfig executor: lsf
+Aug-19 12:26:11.294 [main] DEBUG nextflow.processor.ProcessFactory - >> processorType: 'lsf'
+Aug-19 12:26:11.303 [main] DEBUG nextflow.executor.Executor - Initializing executor: lsf
+Aug-19 12:26:11.305 [main] INFO  nextflow.executor.Executor - [warm up] executor > lsf
+Aug-19 12:26:11.309 [main] DEBUG n.processor.TaskPollingMonitor - Creating task monitor for executor 'lsf' > capacity: 100; pollInterval: 1s; dumpInterval: 5m 
+Aug-19 12:26:11.311 [main] DEBUG nextflow.processor.TaskDispatcher - Starting monitor: TaskPollingMonitor
+Aug-19 12:26:11.311 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: lsf)
+Aug-19 12:26:11.312 [main] DEBUG nextflow.executor.Executor - Invoke register for executor: lsf
+Aug-19 12:26:11.313 [main] DEBUG n.executor.AbstractGridExecutor - Creating executor 'lsf' > queue-stat-interval: 1m
+Aug-19 12:26:11.343 [main] DEBUG nextflow.Session - >>> barrier register (process: build_index)
+Aug-19 12:26:11.354 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > build_index -- maxForks: 2
+Aug-19 12:26:11.387 [main] DEBUG nextflow.processor.ProcessFactory - << taskConfig executor: lsf
+Aug-19 12:26:11.388 [main] DEBUG nextflow.processor.ProcessFactory - >> processorType: 'lsf'
+Aug-19 12:26:11.388 [main] DEBUG nextflow.executor.Executor - Initializing executor: lsf
+Aug-19 12:26:11.388 [main] DEBUG n.executor.AbstractGridExecutor - Creating executor 'lsf' > queue-stat-interval: 1m
+Aug-19 12:26:11.389 [main] DEBUG nextflow.Session - >>> barrier register (process: align)
+Aug-19 12:26:11.391 [Actor Thread 2] DEBUG nextflow.processor.TaskProcessor - <build_index> Poison pill arrived
+Aug-19 12:26:11.419 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > align -- maxForks: 2
+Aug-19 12:26:11.420 [Actor Thread 3] DEBUG nextflow.processor.StateObj - <build_index> State before poison: StateObj[submitted: 1; completed: 0; poisoned: false ]
+Aug-19 12:26:11.434 [main] DEBUG nextflow.processor.ProcessFactory - << taskConfig executor: lsf
+Aug-19 12:26:11.434 [main] DEBUG nextflow.processor.ProcessFactory - >> processorType: 'lsf'
+Aug-19 12:26:11.434 [main] DEBUG nextflow.executor.Executor - Initializing executor: lsf
+Aug-19 12:26:11.434 [main] DEBUG n.executor.AbstractGridExecutor - Creating executor 'lsf' > queue-stat-interval: 1m
+Aug-19 12:26:11.435 [main] DEBUG nextflow.Session - >>> barrier register (process: mark_dup)
+Aug-19 12:26:11.440 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > mark_dup -- maxForks: 2
+Aug-19 12:26:11.444 [main] DEBUG nextflow.processor.ProcessFactory - << taskConfig executor: lsf
+Aug-19 12:26:11.444 [main] DEBUG nextflow.processor.ProcessFactory - >> processorType: 'lsf'
+Aug-19 12:26:11.444 [main] DEBUG nextflow.executor.Executor - Initializing executor: lsf
+Aug-19 12:26:11.444 [main] DEBUG n.executor.AbstractGridExecutor - Creating executor 'lsf' > queue-stat-interval: 1m
+Aug-19 12:26:11.445 [main] DEBUG nextflow.Session - >>> barrier register (process: add_read_group_id)
+Aug-19 12:26:11.467 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > add_read_group_id -- maxForks: 2
+Aug-19 12:26:11.472 [main] DEBUG nextflow.processor.ProcessFactory - << taskConfig executor: lsf
+Aug-19 12:26:11.472 [main] DEBUG nextflow.processor.ProcessFactory - >> processorType: 'lsf'
+Aug-19 12:26:11.472 [main] DEBUG nextflow.executor.Executor - Initializing executor: lsf
+Aug-19 12:26:11.472 [main] DEBUG n.executor.AbstractGridExecutor - Creating executor 'lsf' > queue-stat-interval: 1m
+Aug-19 12:26:11.473 [main] DEBUG nextflow.Session - >>> barrier register (process: variant_calling_freebase)
+Aug-19 12:26:11.477 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > variant_calling_freebase -- maxForks: 2
+Aug-19 12:26:11.479 [main] DEBUG nextflow.script.ScriptRunner - > Await termination 
+Aug-19 12:26:11.479 [main] DEBUG nextflow.Session - Session await
+Aug-19 12:26:11.498 [Actor Thread 1] DEBUG nextflow.executor.GridTaskHandler - Launching process > build_index (build_index) -- work folder: /home/cfphxd/PFRAutomatedWorkflows/VariantAnalysisFB/work/46/e60d48ecd5f5867f381f34aa46a384
+Aug-19 12:26:11.637 [Actor Thread 1] INFO  nextflow.Session - [46/e60d48] Submitted process > build_index (build_index)
+Aug-19 12:26:11.638 [Actor Thread 2] DEBUG nextflow.processor.TaskProcessor - <build_index> After stop
+Aug-19 12:26:42.402 [Actor Thread 3] DEBUG nextflow.processor.TaskProcessor - <build_index> Sending poison pills and terminating process
+Aug-19 12:26:42.403 [Actor Thread 3] DEBUG nextflow.Session - <<< barrier arrive (process: build_index)
+Aug-19 12:26:42.417 [Actor Thread 5] DEBUG nextflow.processor.TaskProcessor - <align> Poison pill arrived
+Aug-19 12:26:42.417 [Actor Thread 3] DEBUG nextflow.processor.StateObj - <align> State before poison: StateObj[submitted: 2; completed: 0; poisoned: false ]
+Aug-19 12:26:42.464 [Actor Thread 2] DEBUG nextflow.executor.GridTaskHandler - Launching process > align (align) -- work folder: /home/cfphxd/PFRAutomatedWorkflows/VariantAnalysisFB/work/8a/787e9c065a7bc34119be93dfc900ff
+Aug-19 12:26:42.555 [Actor Thread 2] INFO  nextflow.Session - [8a/787e9c] Submitted process > align (align)
+Aug-19 12:26:42.555 [Actor Thread 6] DEBUG nextflow.executor.GridTaskHandler - Launching process > align (align) -- work folder: /home/cfphxd/PFRAutomatedWorkflows/VariantAnalysisFB/work/8d/229727e172e7415c091ff90604d1a1
+Aug-19 12:26:42.615 [Actor Thread 6] INFO  nextflow.Session - [8d/229727] Submitted process > align (align)
+Aug-19 12:26:42.617 [Actor Thread 5] DEBUG nextflow.processor.TaskProcessor - <align> After stop
+Aug-19 12:27:13.414 [Actor Thread 7] DEBUG nextflow.executor.GridTaskHandler - Launching process > mark_dup (mark_dup) -- work folder: /home/cfphxd/PFRAutomatedWorkflows/VariantAnalysisFB/work/27/21e06e360fd4c503bc4a7cc6b219a0
+Aug-19 12:27:13.456 [Actor Thread 7] INFO  nextflow.Session - [27/21e06e] Submitted process > mark_dup (mark_dup)
+Aug-19 12:27:13.470 [Actor Thread 3] DEBUG nextflow.processor.TaskProcessor - <align> Sending poison pills and terminating process
+Aug-19 12:27:13.471 [Actor Thread 3] DEBUG nextflow.Session - <<< barrier arrive (process: align)
+Aug-19 12:27:13.471 [Actor Thread 7] DEBUG nextflow.processor.TaskProcessor - <mark_dup> Poison pill arrived
+Aug-19 12:27:13.471 [Actor Thread 5] DEBUG nextflow.executor.GridTaskHandler - Launching process > mark_dup (mark_dup) -- work folder: /home/cfphxd/PFRAutomatedWorkflows/VariantAnalysisFB/work/30/9067a872d62629e1a0ff97d6777047
+Aug-19 12:27:13.474 [Actor Thread 3] DEBUG nextflow.processor.StateObj - <mark_dup> State before poison: StateObj[submitted: 2; completed: 0; poisoned: false ]
+Aug-19 12:27:13.548 [Actor Thread 5] INFO  nextflow.Session - [30/9067a8] Submitted process > mark_dup (mark_dup)
+Aug-19 12:27:13.548 [Actor Thread 7] DEBUG nextflow.processor.TaskProcessor - <mark_dup> After stop
+Aug-19 12:28:14.663 [Actor Thread 8] ERROR nextflow.processor.TaskProcessor - Error executing process > 'add_read_group_id (add_read_group_id)'
+
+Caused by:
+  Unknown variable 'add_read_group_id_MAX_RECORDS_IN_RAM' -- Make sure you didn't misspell it or define somewhere in the script before use it
+
+
+Source block:
+  """
+      java -jar \$PICARD AddOrReplaceReadGroups \
+      I=${bwa_mdup_bam} \
+      O=${label_add_read_group_id}_${pair_id}.bam \
+      MAX_RECORDS_IN_RAM=${add_read_group_id_MAX_RECORDS_IN_RAM} \
+      RGID=${pair_id} \
+      RGLB=${add_read_group_id_RGLB} \
+      RGPL=${add_read_group_id_RGPL} \
+      RGPU=${add_read_group_id_RGPU} \
+      RGSM=${pair_id}
+      ${add_read_group_id_free}
+  
+      samtools index ${label_add_read_group_id}_${pair_id}.bam
+      samtools flagstat ${label_add_read_group_id}_${pair_id}.bam > ${label_add_read_group_id}_${pair_id}.stats
+  """
+
+Tip: you can replicate the issue by changing to the process work dir and entering the command: 'bash .command.run'
+nextflow.exception.ProcessNotRecoverableException: Process `null` script contains error(s)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:83)
+	at org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:77)
+	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:84)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:60)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:235)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:255)
+	at nextflow.processor.TaskRun.resolve(TaskRun.groovy:605)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:210)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.call(PogoMetaMethodSite.java:71)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:125)
+	at nextflow.processor.TaskProcessor.makeTaskContextStage2(TaskProcessor.groovy:1720)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:210)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:59)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:182)
+	at nextflow.processor.TaskProcessor.invokeTask(TaskProcessor.groovy:539)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:93)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:325)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1215)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1082)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1024)
+	at groovy.lang.MetaClassImpl.invokePropertyOrMissing(MetaClassImpl.java:1261)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1217)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1024)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:812)
+	at groovy.lang.GroovyObjectSupport.invokeMethod(GroovyObjectSupport.java:46)
+	at groovy.lang.Script.invokeMethod(Script.java:80)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeOnDelegationObjects(ClosureMetaClass.java:430)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:369)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1024)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.callCurrent(PogoMetaClassSite.java:69)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:52)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:154)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:166)
+	at Script465E893140CC2607DC9D85E63608E4F1$_run_closure1.doCall(Script465E893140CC2607DC9D85E63608E4F1:1)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:93)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:325)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:294)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1024)
+	at groovy.lang.Closure.call(Closure.java:414)
+	at groovyx.gpars.dataflow.operator.DataflowOperatorActor.startTask(DataflowOperatorActor.java:120)
+	at groovyx.gpars.dataflow.operator.ForkingDataflowOperatorActor.access$001(ForkingDataflowOperatorActor.java:35)
+	at groovyx.gpars.dataflow.operator.ForkingDataflowOperatorActor$1.run(ForkingDataflowOperatorActor.java:58)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: groovy.lang.MissingPropertyException: Unknown variable 'add_read_group_id_MAX_RECORDS_IN_RAM' -- Make sure you didn't misspell it or define somewhere in the script before use it
+	at sun.reflect.GeneratedConstructorAccessor11.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:83)
+	at org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:77)
+	at org.codehaus.groovy.runtime.callsite.ConstructorSite.callConstructor(ConstructorSite.java:45)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:263)
+	at nextflow.processor.TaskContext.get(TaskContext.groovy:144)
+	at sun.reflect.GeneratedMethodAccessor53.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSite.invoke(PogoMetaMethodSite.java:169)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:59)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:166)
+	at nextflow.processor.TaskContext.getProperty(TaskContext.groovy:155)
+	at org.codehaus.groovy.runtime.InvokerHelper.getProperty(InvokerHelper.java:172)
+	at groovy.lang.Closure.getProperty(Closure.java:289)
+	at org.codehaus.groovy.runtime.callsite.PogoGetPropertySite.getProperty(PogoGetPropertySite.java:50)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callGroovyObjectGetProperty(AbstractCallSite.java:307)
+	at _nf_script_60979620$_run_closure7$_closure28.doCall(_nf_script_60979620:214)
+	at _nf_script_60979620$_run_closure7$_closure28.doCall(_nf_script_60979620)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:93)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:325)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:294)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1024)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.call(PogoMetaClassSite.java:42)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:48)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.call(PogoMetaClassSite.java:57)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:117)
+	at nextflow.processor.TaskRun.resolve(TaskRun.groovy:588)
+	... 54 common frames omitted
+Aug-19 12:28:14.673 [Actor Thread 8] DEBUG nextflow.Session - Session aborted -- Cause: nextflow.exception.ProcessNotRecoverableException: Process `null` script contains error(s)
+Aug-19 12:28:14.675 [main] DEBUG nextflow.Session - Session await > processes completed
+Aug-19 12:28:14.675 [main] DEBUG nextflow.Session - Session await > done
+Aug-19 12:28:14.677 [Actor Thread 7] DEBUG nextflow.processor.TaskProcessor - <add_read_group_id> After stop
+Aug-19 12:28:14.678 [Actor Thread 9] DEBUG nextflow.processor.TaskProcessor - <variant_calling_freebase> After stop
+Aug-19 12:28:14.687 [Thread-3] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: lsf)
+Aug-19 12:28:14.691 [main] DEBUG nextflow.Session - Session destroyed
