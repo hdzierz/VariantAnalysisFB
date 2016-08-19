@@ -1,10 +1,6 @@
 #!/usr/bin/env nextflow
 
-@Grab('org.apache.commons:commons-csv:1.2')
-import org.apache.commons.csv.CSVParser
-import static org.apache.commons.csv.CSVFormat.*
-
-f = file("$baseDir/design.config")
+f = file("${params.config}")
 
 reader = f.newReader()
 f.withReader{
@@ -13,7 +9,7 @@ f.withReader{
         def row = line.tokenize(',')
         if(row[0] != 'label'){
             fn = "${params.input_dir}/${row[1]}"
-            sl = "$baseDir/data/${row[0]}_${row[2]}_${row[3]}.fq.gz"
+            sl = "${params.tmp_dir}/${row[0]}_${row[2]}_${row[3]}.fq.gz"
             ['ln', '-s', fn, sl].execute().waitFor()
         }
     }
@@ -99,7 +95,7 @@ process align{
     tag label_align
     module = params.align_module
 
-    publishDir "$baseDir/220.${tag}", mode: 'copy', overwrite: true
+    publishDir "${params.output_dir}/220.${tag}", mode: 'copy', overwrite: true
 
     input:
     file genome_file from genome_file
@@ -166,7 +162,7 @@ process mark_dup{
     output:
     set pair_id, file("${tag}_${pair_id}.bam") into bwa_mdup_bam
 
-    publishDir "$baseDir/230.${tag}", mode: 'copy', overwrite: true
+    publishDir "${params.output_dir}/230.${tag}", mode: 'copy', overwrite: true
 
     when:
     params.mark_dup == true
@@ -205,7 +201,7 @@ process add_read_group_id{
     output:
     set pair_id, file("${tag}_${pair_id}.bam") into bwa_mdup_rg_bam
 
-    publishDir "$baseDir/240.${tag}", mode: 'copy', overwrite: true
+    publishDir "${params.output_dir}/240.${tag}", mode: 'copy', overwrite: true
 
     when:
     params.add_read_group_id == true
@@ -249,7 +245,7 @@ process variant_calling_freebase{
     output:
     set pair_id, file("${tag}_${pair_id}.vcf") into vcf
 
-    publishDir "$baseDir/250.${tag}", mode: 'copy', overwrite: true
+    publishDir "${params.output_dir}/250.${tag}", mode: 'copy', overwrite: true
 
     when:
     params.variant_calling_freebase == true
