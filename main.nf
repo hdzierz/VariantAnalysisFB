@@ -65,10 +65,10 @@ process build_index {
     tag 'build_index'
     module = params.build_index_module
 
-    beforeScript "source init.sh"
+    //beforeScript "source init.sh"
 
     input:
-    file genome_file from genome
+    file genome_file from genome_file
       
     output:
     file 'genome.index*' into genome_index
