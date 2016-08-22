@@ -15,6 +15,14 @@ f.withReader{
     }
 }
 
+if(!file('design.config').exists()){
+    println("COPYING design file to local directory")
+    ['cp', "${baseDir}/design.config", '.'].execute.waitFor()
+}
+else{
+    println("Design file exists")
+}
+
 //fn = pth + row['file']
 //sl = dat + row['label'] + '_' + row['lane'] + '_' + row['read'] + '.fq.gz'
 //['ln', '-s', 'nexflow.config', 'tt'].execute().waitFor() 
