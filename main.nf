@@ -65,7 +65,7 @@ process build_index {
     tag 'build_index'
     module = params.build_index_module
 
-    //beforeScript "python prepare.py ${params.input_dir} ./data"
+    beforeScript "source init.sh"
 
     input:
     file genome_file
