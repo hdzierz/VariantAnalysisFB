@@ -68,7 +68,7 @@ process build_index {
     beforeScript "source init.sh"
 
     input:
-    file genome_file
+    file genome_file from genome
       
     output:
     file 'genome.index*' into genome_index
