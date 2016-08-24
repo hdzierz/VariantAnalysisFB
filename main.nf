@@ -18,6 +18,14 @@ f.withReader{
     }
 }
 
+if(!file('design.config').exists()){
+    println("COPYING design file to local directory")
+    ['cp', "${baseDir}/design.config", '.'].execute.waitFor()
+}
+else{
+    println("Design file exists")
+}
+
 /*
  * Files
  */
@@ -224,17 +232,17 @@ process add_read_group_id{
 
 
 /*
- * Variant calling with freebase
+ * Variant calling with freebayse
  * Input: Channel bwa_mdup_rg
  * Output: 
  *  File genome
  *  File vcf
- * Tool: freebase
+ * Tool: freebayse
  */
-process variant_calling_freebase{
+process variant_calling_freebayse{
     tag label_variant_calling
 
-    module = params.variant_calling_freebase_module 
+    module = params.variant_calling_freebayse_module 
 
     input:
     file genome from genome_file
@@ -246,7 +254,7 @@ process variant_calling_freebase{
     publishDir "${params.output_dir}/250.${tag}", mode: 'copy', overwrite: true
 
     when:
-    params.variant_calling_freebase == true
+    params.variant_calling_freebayse == true
 
     script:
     """
