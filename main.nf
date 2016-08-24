@@ -20,7 +20,7 @@ f.withReader{
 
 if(!file('sign.config').exists()){
     println("COPYING design file to local directory")
-    ['cp', params.design, '.'].execute.waitFor()
+    ['cp', params.design, '.'].execute().waitFor()
 }
 else{
     println("Design file exists")
