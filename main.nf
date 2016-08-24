@@ -7,18 +7,16 @@ f.withReader{
     String line
     while( line = reader.readLine()){
         def row = line.tokenize(',')
+        println("Parsing row: $row")
         if(row[0] != 'label'){
+            println("Linking files")
             fn = "${params.input_dir}/${row[1]}"
             sl = "${params.tmp_dir}/${row[0]}_${row[2]}_${row[3]}.fq.gz"
+            println("ln -s $fn $sl")
             ['ln', '-s', fn, sl].execute().waitFor()
         }
     }
 }
-
-//fn = pth + row['file']
-//sl = dat + row['label'] + '_' + row['lane'] + '_' + row['read'] + '.fq.gz'
-//['ln', '-s', 'nexflow.config', 'tt'].execute().waitFor() 
-
 
 /*
  * Files
