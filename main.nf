@@ -1,5 +1,15 @@
 #!/usr/bin/env nextflow
 
+if(!file(params.design).exists()){
+    println("COPYING design file to local directory")
+    println("cp $baseDir/design.config ${params.design}")
+    ['cp', "$baseDir/design.config", params.design].execute().waitFor()
+}
+else{
+    println("Design file exists")
+}
+
+
 f = file("${params.design}")
 
 reader = f.newReader()
@@ -18,13 +28,6 @@ f.withReader{
     }
 }
 
-if(!file('sign.config').exists()){
-    println("COPYING design file to local directory")
-    ['cp', params.design, '.'].execute().waitFor()
-}
-else{
-    println("Design file exists")
-}
 
 /*
  * Files
