@@ -1,6 +1,6 @@
 #!/usr/bin/env nextflow
 
-f = file("${params.config}")
+f = file("${params.design}")
 
 reader = f.newReader()
 f.withReader{
@@ -11,16 +11,16 @@ f.withReader{
         if(row[0] != 'label'){
             println("Linking files")
             fn = "${params.input_dir}/${row[1]}"
-            sl = "${params.tmp_dir}/${row[0]}_${row[2]}_${row[3]}.fq.gz"
+            sl = "${params.data_dir}/${row[0]}_${row[2]}_${row[3]}.fq.gz"
             println("ln -s $fn $sl")
             ['ln', '-s', fn, sl].execute().waitFor()
         }
     }
 }
 
-if(!file('design.config').exists()){
+if(!file('sign.config').exists()){
     println("COPYING design file to local directory")
-    ['cp', "${baseDir}/design.config", '.'].execute.waitFor()
+    ['cp', params.design, '.'].execute.waitFor()
 }
 else{
     println("Design file exists")
