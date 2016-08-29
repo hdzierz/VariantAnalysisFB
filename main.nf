@@ -1,31 +1,32 @@
 #!/usr/bin/env nextflow
 
-f = file("${params.config}")
+if(!file(params.design).exists()){
+    println("COPYING design file to local directory")
+    println("cp $baseDir/design.config ${params.design}")
+    ['cp', "$baseDir/design.config", params.design].execute().waitFor()
+}
+else{
+    println("Design file exists")
+}
+
+
+f = file("${params.design}")
 
 reader = f.newReader()
 f.withReader{
     String line
     while( line = reader.readLine()){
         def row = line.tokenize(',')
+        println("Parsing row: $row")
         if(row[0] != 'label'){
+            println("Linking files")
             fn = "${params.input_dir}/${row[1]}"
-            sl = "${params.tmp_dir}/${row[0]}_${row[2]}_${row[3]}.fq.gz"
+            sl = "${params.data_dir}/${row[0]}_${row[2]}_${row[3]}.fq.gz"
+            println("ln -s $fn $sl")
             ['ln', '-s', fn, sl].execute().waitFor()
         }
     }
 }
-
-if(!file('design.config').exists()){
-    println("COPYING design file to local directory")
-    ['cp', "${baseDir}/design.config", '.'].execute.waitFor()
-}
-else{
-    println("Design file exists")
-}
-
-//fn = pth + row['file']
-//sl = dat + row['label'] + '_' + row['lane'] + '_' + row['read'] + '.fq.gz'
-//['ln', '-s', 'nexflow.config', 'tt'].execute().waitFor() 
 
 
 /*
